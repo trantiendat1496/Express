@@ -1,0 +1,19 @@
+extends ../layouts/template.pug
+
+block content
+    h1 Create todos
+
+    if errors   
+        each error in errors
+            .alert.alert-danger= error
+
+    form(action = "/books/create", method = "POST")
+        .form-group
+            lable(for="name") Name
+            input#name.form-control(name= "name", type = "text",value= book.name)
+
+        .form-group
+            lable(for="description") Description
+            input#description.form-control(name= "description", type = "text",value= book.description)    
+
+        button.btn.btn-primary Create

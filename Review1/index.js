@@ -21,7 +21,7 @@ app.get('/', function(req, res){
 	});
 });
 
-app.use('/todos', todoRoute);
+app.use('/books', todoRoute);
 
 app.listen(port, function(){
 	console.log('Server listenning on port ' + port);

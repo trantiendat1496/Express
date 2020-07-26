@@ -3,34 +3,46 @@ var shortid = require('shortid');
 
 
 module.exports.index = function(req, res){
-	res.render('todos/index',{
-		todos: db.get('todos').value()
+	res.render('books/index',{
+		books: db.get('books').value()
 	});
+	
 };
 
 module.exports.search = function(req, res){
 	var q = req.query.q;
 	
-	const todos = db.get('todos').value();
+	var books = db.get('books').value();
 	
-	var matchedTodos = todos.filter(function(todos){
-		return todos.name.toLowerCase().indexOf(q.toLowerCase()) != -1;
+	var matchedBooks = books.filter(function(books){
+		return books.name.toLowerCase().indexOf(q.toLowerCase()) != -1;
 	});
 	
-	res.render('todos/index', {
-		todos: matchedTodos
+	res.render('books/index', {
+		books: matchedBooks
 	});
 };
 
 module.exports.create = function(req, res){
-	res.render("todos/create");
+	res.render("books/create");
 };
 
 module.exports.get =  function(req, res){
 	var id = req.params.id;
  
-	db.get('todos').remove({id: id}).write();
-	res.redirect("/todos");
+	db.get('books').remove({id: id}).write();
+	res.redirect("/books"); 
+
+};
+
+
+module.exports.edit = function(req, res){
+	var id = req.params.id;
+	var book = db.get('books').find({id : id}).value();
+
+	res.render("books/view" , {
+		book: book
+	});	
 };
 
 module.exports.postCreate = function(req, res){
@@ -41,18 +53,19 @@ module.exports.postCreate = function(req, res){
 		errors.push('Name is require.')
 	}
 
-	if(!req.body.phone){
-		errors.push('Phone is require.')
+	if(!req.body.description){
+		errors.push('Description is require.')
 	}
 
 	if(errors.length){
-		res.render('todos/create', {
+		res.render('books/create', {
 			errors: errors,
 			values: req.body
 		});
 		return;
 	}
 	
-	db.get('todos').push(req.body).write();
-	res.redirect("/todos")
+	db.get('books').push(req.body).write();
+	res.redirect("/books")
+	
 };
