@@ -7,7 +7,7 @@ block content
         each error in errors
             .alert.alert-danger= error
 
-    form(action = "/books/create", method = "POST")
+    form(action = "/books/update/" + book.id, method = "POST")
         .form-group
             lable(for="name") Name
             input#name.form-control(name= "name", type = "text",value= book.name)

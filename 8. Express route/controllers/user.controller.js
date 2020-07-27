@@ -39,11 +39,22 @@ module.exports.delete =  function(req, res){
 module.exports.edit = function(req, res){
 	var id = req.params.id;
 	var user = db.get('users').find({id : id}).value();
-
 	res.render("users/view" , {
 		user: user
 	});	
 };
+
+module.exports.postUpdate = function(req, res){
+	var id = req.params.id;
+	console.log(id);
+	console.log(req.body);
+	db.get('users')
+		.find({ id: id })
+		.assign({ name: req.body.name, phone: req.body.phone})
+		.write()
+	res.redirect('/users')
+};
+
 
 module.exports.postCreate = function(req, res){
 	req.body.id = shortid.generate();

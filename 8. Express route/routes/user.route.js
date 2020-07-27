@@ -17,6 +17,6 @@ router.get('/:id', controller.delete);
 
 router.post("/create", controller.postCreate);
 
-
+router.post("/update/:id", controller.postUpdate);
 
 module.exports = router;

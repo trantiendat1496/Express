@@ -7,7 +7,7 @@ block content
         each error in errors
             .alert.alert-danger= error
 
-    form(action = "/users/create", method = "POST")
+    form(action = "/users/update/" + user.id, method = "POST")
         .form-group
             lable(for="name") Name
             input#name.form-control(name= "name", type = "text",value= user.name)
@@ -16,4 +16,4 @@ block content
             lable(for="phone") Phone
             input#phone.form-control(name= "phone", type = "text",value= user.phone)    
 
-        button.btn.btn-primary Create
+        button.btn.btn-primary Update

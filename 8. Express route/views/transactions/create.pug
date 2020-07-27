@@ -1,0 +1,17 @@
+form.create-form(action="/transactions/create", method="POST")
+  h2 Add new transaction
+  br
+  b User
+  div
+  select(id="users-select", name="userId")
+    each user in users
+      option(value=user.id) #{user.name}
+  div
+  b Book
+  div
+  select(id="books-select", name="bookId")
+    each book in books
+      option(value=book.id) #{book.name}
+  div
+  button(type="submit") Add
+  a(href="/transactions") Cancel

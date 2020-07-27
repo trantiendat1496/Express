@@ -45,6 +45,18 @@ module.exports.edit = function(req, res){
 	});	
 };
 
+module.exports.postUpdate = function(req, res){
+	var id = req.params.id;
+	console.log(id);
+	console.log(req.body);
+	db.get('books')
+		.find({ id: id })
+		.assign({ name: req.body.name, description: req.body.description})
+		.write()
+	res.redirect('/books')
+};
+
+
 module.exports.postCreate = function(req, res){
 	req.body.id = shortid.generate();
 	var errors = [];

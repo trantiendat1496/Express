@@ -5,6 +5,8 @@ var bookRoute = require('./routes/book.route');
 
 var userRoute = require('./routes/user.route');
 
+var transactionRoute = require('./routes/transaction.route');
+
 var port = 3000;
 
 var app = express();
@@ -26,6 +28,8 @@ app.get('/', function(req, res){
 app.use('/books', bookRoute);
 
 app.use('/users', userRoute);
+
+app.use('/transactions', transactionRoute);
 
 app.listen(port, function(){
 	console.log('Server listenning on port ' + port);
