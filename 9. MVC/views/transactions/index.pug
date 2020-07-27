@@ -1,0 +1,18 @@
+extends ../layouts/template.pug
+
+block content
+    h1 Transaction Management System
+    table.table
+        tr
+            th Name
+            th Transaction
+        
+        if transactions.length > 0
+            each transaction in transactions
+                tr 
+                    td= transaction.userName
+                    td= transaction.bookName
+                   
+    a.btn.btn-primary.mr-5(href="/transactions/create") Add new transaction
+    
+    a.btn.btn-primary(href="/") Back to home
