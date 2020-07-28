@@ -1,20 +1,41 @@
 html    
     head
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
         link(rel="stylesheet", href="styles/custom.css")
     body
-        nav.navbar.navbar-expand-lg.navbar-light.bg-light
-            a.navbar-brand(href='#') Coder.Tokyo
-            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
-                span.navbar-toggler-icon
-            #navbarNav.collapse.navbar-collapse
-                ul.navbar-nav
-                    li.nav-item
-                        a.nav-link(href='/') Home
-                    li.nav-item
-                        a.nav-link(href='/todos') To do
+        block navbar
+            div(class="bg-dark navbar-wrapper")
+                .container
+                    nav(class="navbar navbar-expand-lg navbar-dark bg-dark")
+                        a(class="navbar-brand", href="/") BOOK STORE
+                        button(class="navbar-toggler", type="button", data-toggle="collapse", data-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
+                            span(class="navbar-toggler-icon")
+
+                        div(class="collapse navbar-collapse", id="navbarSupportedContent")
+                            ul(class="navbar-nav ml-auto")
+                                li(class="nav-item dropdown")
+                                    a(class="nav-link dropdown-toggle", href="#", id="navbarDropdown", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Books
+                                    div(class="dropdown-menu bg-dark", aria-labelledby="navbarDropdown")
+                                        a(class="dropdown-item", href="/books/view") View all books
+                                        a(class="dropdown-item", href="/books/create") Add new book
+                                li(class="nav-item dropdown")
+                                    a(class="nav-link dropdown-toggle", href="#", id="navbarDropdown", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Users
+                                    div(class="dropdown-menu bg-dark", aria-labelledby="navbarDropdown")
+                                        a(class="dropdown-item", href="/users/view") View all users
+                                        a(class="dropdown-item", href="/users/create") Add new user
+                                li(class="nav-item dropdown")
+                                    a(class="nav-link dropdown-toggle", href="#", id="navbarDropdown", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") Transactions
+                                    div(class="dropdown-menu bg-dark", aria-labelledby="navbarDropdown")
+                                        a(class="dropdown-item", href="/transactions") View all transactions
+                                        a(class="dropdown-item", href="/transactions/create") Add new transaction
+
+    .container.pt-5
+        block content   
+
+        block js
+            script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+            script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
+            script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js')
 
 
-
-        .container.pt-5
-            block content   
