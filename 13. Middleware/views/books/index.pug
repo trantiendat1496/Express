@@ -1,0 +1,34 @@
+extends ../layouts/template.pug
+
+block content
+    h1
+        Span.mr-3 BOOK
+        a.btn.btn-primary(href="books/create") New
+
+    .d-flex.align-item-center
+        form.ml-auto(action="books/search" method="get", class="d-flex")
+            input(type="text", name = "q", class="form-control")
+            button(class="btn btn-primary ml-2") Search
+
+    table(class="table table-bordered")
+        thead(class="thead-dark")
+            tr
+                th(scope="col", width="10%") #
+                th(scope="col", width="30%") Name
+                th(scope="col", width="50%") Description
+                th(scope="col", width="10%") Action
+
+        tbody
+            if books.length > 0
+                each book, index in books
+                    tr      
+                        th(scope="row") #{index + 1}                            
+                        td= book.name
+                        td= book.description
+                        td
+                            .action-wrapper(width="100%", style="display: flex; justify-content: space-around") 
+                                a.btn.btn-success(href='/books/view/'+ book.id) 
+                                    span(class="material-icons") create
+                                a.btn.btn-danger.ml-2(href='/books/' + book.id) 
+                                    span(class="material-icons") delete
+
