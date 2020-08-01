@@ -1,0 +1,21 @@
+extends ../layouts/template.pug
+
+block content
+
+
+
+    h2(style="margin: 20px 0") Add new book
+    form.create-form(action="/transactions/create", method="POST")
+        div(class="form-group")
+            label(for="exampleInputEmail1") Name
+            select(id="users-select", name="userId", class="custom-select")
+                each user in users
+                    option(value=user.id) #{user.name}
+        div(class="form-group")
+            label(for="exampleInputEmail1") Description
+            select(id="books-select", name="bookId", class="custom-select")
+                each book in books
+                    option(value=book.id) #{book.name}
+
+        button.btn.btn-primary(type="submit") Add
+        a(href="/transactions", class="btn btn-danger ml-2") Cancel
