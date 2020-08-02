@@ -7,7 +7,7 @@ var authMiddleware = require('../middlewares/auth.middleware');
 var router = express.Router();
 
 
-router.get('/',authMiddleware.requireAuth, controller.index);
+router.get('/', controller.index); // ngoài kia đã dùng rồi mà sao vào đây dùng nữa @@ đang loạn lắm r a ạ :(())
 
 router.get('/search', controller.search);
 

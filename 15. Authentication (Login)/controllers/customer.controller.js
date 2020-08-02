@@ -1,10 +1,18 @@
 var db = require('../db');
-var shortid = require('shortid');
 
 
 module.exports.index = function(req, res){
-	res.render('customer/index',{
-		users: db.get('users').value()
+	var id = req.params.id;
+	
+	var user = db.get('users').find({id : id}).value();
+
+	
+	var transaction = db.get('transactions').value().filter((items)=>{
+		return items.userId == user.id;
 	});
 	
+	res.render("customer/index" , {
+		users: user, 
+		trans : transaction
+	});	
 };

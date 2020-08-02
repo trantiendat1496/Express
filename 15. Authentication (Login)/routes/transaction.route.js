@@ -7,7 +7,7 @@ var authMiddleware = require('../middlewares/auth.middleware');
 var router = express.Router();
 
 
-router.get('/',authMiddleware.requireAuth, controller.index);
+router.get('/', controller.index);
 
 router.get('/create', controller.getCreate);
 

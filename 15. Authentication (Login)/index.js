@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var bookRoute = require('./routes/book.route');
 var userRoute = require('./routes/user.route');
 var transactionRoute = require('./routes/transaction.route');
+var customerRoute = require('./routes/customer.route');
 var  authRoute = require('./routes/auth.route');
 
 var authMiddleware = require('./middlewares/auth.middleware');
@@ -26,13 +27,15 @@ app.get('/', function(req, res){
 	});
 });
 
-app.use('/books', authMiddleware.requireAuth, bookRoute);
+app.use('/books', authMiddleware.requireAuth, bookRoute); 
 
-app.use('/users',authMiddleware.requireAuth, userRoute);
+app.use('/users',authMiddleware.requireAuth, userRoute); 
 
-app.use('/transactions',authMiddleware.requireAuth, transactionRoute);
+app.use('/transactions',authMiddleware.requireAuth, transactionRoute); 
 
-app.use('/auth', authRoute);
+app.use('/customer', authMiddleware.requireAuth, customerRoute); //authMiddleware.requireAuth, authMiddleware.requireAdmin đoạn này có nghĩa là nó phải đăng nhập và nó phải là admin
+
+app.use('/auth', authRoute); 
 
 app.listen(port, function(){
 	console.log('Server listenning on port ' + port);
