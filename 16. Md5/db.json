@@ -1,0 +1,101 @@
+{
+  "books": [
+    {
+      "name": "VUEJS",
+      "description": "Very good",
+      "id": "ByBmehJtB"
+    },
+    {
+      "name": "HTML 3",
+      "description": "Very good",
+      "id": "1i9aJYGn7"
+    },
+    {
+      "name": "REACTJS",
+      "description": "Very good",
+      "id": "0UGGaBSJD"
+    },
+    {
+      "name": "HTML 5",
+      "description": "Very good",
+      "id": "G4vMh5frT"
+    },
+    {
+      "name": "ES6",
+      "description": "Very good",
+      "id": "Ohg2jgRNU"
+    }
+  ],
+  "users": [
+    {
+      "name": "Chu Nguyên Chương",
+      "phone": "123456",
+      "password": "$2b$10$BBe9.Ajhpj49oh5l3nc3fOoJvNABnfYXKrHNRXt1mNNh19vK9q.Xi",
+      "email": "chuong@gmail.com",
+      "id": "86Msshg7y",
+      "isAdmin": false,
+      "wrongLoginCount": 0
+    },
+    {
+      "id": "EzzajdPr7",
+      "name": "Trần Tiến Đạt",
+      "phone": "0332453467",
+      "email": "trantiendat1496@gmail.com",
+      "password": "$2b$10$bKLFpQuUGqSfKIec94ylB.sLH.vaU18.HKvz69gwvhKCFGLoofl1O",
+      "isAdmin": true,
+      "wrongLoginCount": 1
+    },
+    {
+      "id": "pHDU6LoUj",
+      "name": "Trần Minh Cường",
+      "phone": "123456798",
+      "email": "trantiendat1496@gmail.com",
+      "password": "$2b$10$ovX2b98xuslFKdwewhTSROsXVC0EBlKpJhd2U4ijjcvpCROvA0AVC"
+    },
+    {
+      "id": "tkhaXHyAp",
+      "name": "Trần Văn Cao",
+      "phone": "12312314665",
+      "email": "tranvancao@gmail.com",
+      "password": "$2b$10$YhFH0YXjMIEXrNujjx5YP.rFOiTHw04vLAvkAyC69g8OEu.x9ANb.",
+      "wrongLoginCount": 0
+    }
+  ],
+  "transactions": [
+    {
+      "userId": "86Msshg7y",
+      "bookId": "ByBmehJtB",
+      "id": "u4Nrn1y5J",
+      "userName": "Chu Nguyên Chương",
+      "bookName": "VUEJS"
+    },
+    {
+      "userId": "86Msshg7y",
+      "bookId": "1i9aJYGn7",
+      "id": "9GsZGfSNW",
+      "userName": "Chu Nguyên Chương",
+      "bookName": "HTML 3"
+    },
+    {
+      "userId": "pHDU6LoUj",
+      "bookId": "1i9aJYGn7",
+      "id": "Hr15vA2hj",
+      "userName": "Trần Minh Cường",
+      "bookName": "HTML 3"
+    },
+    {
+      "userId": "tkhaXHyAp",
+      "bookId": "Ohg2jgRNU",
+      "id": "KzZIHPuWX",
+      "userName": "Trần Văn Cao",
+      "bookName": "ES6"
+    },
+    {
+      "userId": "tkhaXHyAp",
+      "bookId": "ByBmehJtB",
+      "id": "3uu_DNyza",
+      "userName": "Trần Văn Cao",
+      "bookName": "VUEJS"
+    }
+  ]
+}

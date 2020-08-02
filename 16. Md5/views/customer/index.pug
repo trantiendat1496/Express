@@ -1,0 +1,55 @@
+html    
+    head
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+        link(rel="stylesheet", href="styles/custom.css")
+    body
+        block navbar
+            div(class="bg-dark navbar-wrapper")
+                .container
+                    nav(class="navbar navbar-expand-lg navbar-dark bg-dark")
+                        a(class="navbar-brand", href="/") BOOK STORE
+                        button(class="navbar-toggler", type="button", data-toggle="collapse", data-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
+                            span(class="navbar-toggler-icon")
+
+        .container.pt-5
+            block content                       
+
+            h1
+                Span.mr-3 Hello
+
+            h1= users.name  
+
+            h1.pt-5
+
+            table(class="table table-bordered")
+                thead(class="thead-dark")
+                    tr
+                        th(scope="col", width="10%") #
+                        th(scope="col", width="40%") User Name
+                        th(scope="col", width="40%") Book Name
+                        th(scope="col", width="10%") Action
+
+                tbody
+                    each tran, index in trans
+                        tr      
+                            th= index + 1
+                            td= tran.userName
+                            td= tran.bookName
+                            td
+                                .action-wrapper(width="100%", style="display: flex; justify-content: space-around") 
+                                    a.btn.btn-success(href='#' ) 
+                                        span(class="material-icons") create
+                                    a.btn.btn-danger.ml-2(href='#' ) 
+                                        span(class="material-icons") delete
+
+
+        
+
+            block js
+                script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+                script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
+                script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js')                        
+
+
+
