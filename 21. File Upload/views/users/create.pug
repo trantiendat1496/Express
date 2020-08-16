@@ -1,0 +1,32 @@
+extends ../layouts/template.pug
+
+block content
+    h1 Create User
+
+    if errors   
+        each error in errors
+            .alert.alert-danger= error
+
+    form(action = "/users/create", method = "POST", enctype="multipart/form-data")
+        .form-group
+            lable(for="name") Name
+            input#name.form-control(name= "name", type = "text", value=values ? values.name : "")
+
+        .form-group
+            lable(for="email") Email
+            input#email.form-control(name= "email", type = "text", value=values ? values.email : "")
+    
+
+        .form-group
+            lable(for="phone") Phone
+            input#phone.form-control(name= "phone", type = "text", value=values ? values.phone : "")   
+
+        .form-group
+            lable(for="password") Password
+            input#password.form-control(name= "password", type = "password", value=values ? values.password : "")        
+
+        .form-group
+            lable(for="avatar") Avatar
+            input#avatar.form-control-file(name= "avatar", type = "file")   
+
+        button.btn.btn-primary Create
