@@ -1,0 +1,51 @@
+extends ../layouts/template.pug
+
+block content
+    h1
+        Span.mr-3 BOOK
+        a.btn.btn-primary(href="books/create") New
+
+    .d-flex.align-item-center
+        form.ml-auto(action="books/search" method="get", class="d-flex")
+            input(type="text", name = "q", class="form-control")
+            button(class="btn btn-primary ml-2") Search
+
+ 
+
+
+
+    each book in books   
+        .card.mr-5.mt-5(style='width: 18rem;display: inline-block')
+            img.card-img-top(src= book.image, alt='Card image cap')
+            .card-body
+                h5.card-title 
+                    span= book.name   
+                p.card-text 
+                    span= book.description    
+            ul.list-group.list-group-flush
+                li.list-group-item 
+                    span= book.price
+                li.list-group-item Dapibus ac facilisis in
+                li.list-group-item Vestibulum at eros
+            .card-body
+                a.btn.btn-success(href='/books/view/'+ book.id) 
+                    span(class="material-icons") create
+                a.btn.btn-danger.ml-2(href='/books/' + book.id) 
+                    span(class="material-icons") delete
+
+
+    nav.mt-5(aria-label='Page navigation example')
+        ul.pagination
+            li.page-item
+                a.page-link(href='#', aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+                    span.sr-only Previous
+                each link in links 
+                    li.page-item
+                        a.page-link(href= link)= link.substr(link.length-1,link.length)
+            li.page-item
+                a.page-link(href='#', aria-label='Next')
+                    span(aria-hidden='true') &raquo;
+                    span.sr-only Next
+                        
+            
