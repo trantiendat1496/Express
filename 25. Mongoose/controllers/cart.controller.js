@@ -1,5 +1,3 @@
-var db = require('../db');
-
 const Book = require('../models/book.model');
 const User = require('../models/user.model');
 const Session = require('../models/session.model');

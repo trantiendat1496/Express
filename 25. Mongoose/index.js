@@ -8,8 +8,6 @@ var path = require('path');
 var  mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOOSE_URL);
 
-const Book = require('./models/book.model');
-
 
 var authRoute = require('./routes/auth.route');
 var cartRoute = require('./routes/cart.route');
