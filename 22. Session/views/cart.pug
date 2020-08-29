@@ -1,0 +1,62 @@
+extends ./layouts/template.pug
+
+block content
+
+    .d-flex.align-item-center
+        form.ml-auto(action="users/search" method="get", class="d-flex")
+            input(type="text", name = "q", class="form-control")
+            button(class="btn btn-primary ml-2") Search
+
+    table(class="table table-bordered")
+        thead(class="thead-dark")
+            tr
+                th(scope="col", width="10%") #
+                th(scope="col", width="20%") Image
+                th(scope="col", width="30%") Product
+                th(scope="col", width="10%") Price
+                th(scope="col", width="20%") Action
+
+        tbody
+            //- each transaction,index in trans
+            //-     tr
+            //-         th(scope="row") #{index + 1} 
+            //-         td 
+            //-             img(src=transaction.bookImage, width="100")
+            //-         td #{transaction.bookName}
+                        
+            //-         td #{transaction.bookPrice}
+                                
+            //-         td
+            //-             .action-wrapper(width="100%", style="display: flex; justify-content: space-around")
+            //-             if !transaction.isComplete
+            //-                 a.btn.btn-success(href="/transactions/" + transaction.id + "/complete", style="font-size: 10px")
+            //-                     span(class="material-icons") create
+            //-                 a.btn.btn-danger.ml-2(href="/transactions/" + transaction.id , style="font-size: 10px")
+            //-                     span(class="material-icons") delete
+
+
+            each transaction,index in trans
+                tr
+                    th(scope="row") #{index + 1} 
+                    td 
+                        each book in books
+                         if book.id == transaction.bookId
+                            img(src=book.image, width="100")
+                    td
+                        each book in books
+                         if book.id == transaction.bookId
+                            span= book.name
+                    td
+                        each book in books
+                         if book.id == transaction.bookId
+                            span= book.price        
+                    td
+                        .action-wrapper(width="100%", style="display: flex; justify-content: space-around")
+                        if !transaction.isComplete
+                            a.btn.btn-success(href="/transactions/" + transaction.id + "/complete", style="font-size: 10px")
+                                span(class="material-icons") create
+                            a.btn.btn-danger.ml-2(href="/transactions/" + transaction.id , style="font-size: 10px")
+                                span(class="material-icons") delete
+
+
+

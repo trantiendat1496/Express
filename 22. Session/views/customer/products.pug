@@ -1,0 +1,62 @@
+html    
+    head
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+        link(rel="stylesheet", href="/styles/custom.css")
+    body
+        block navbar
+            nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+                .container
+                    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo01', aria-controls='navbarTogglerDemo01', aria-expanded='false', aria-label='Toggle navigation')
+                        span.navbar-toggler-icon
+                    #navbarTogglerDemo01.collapse.navbar-collapse
+                        a.navbar-brand(href='/customer/products/') Book Store
+                        ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+                            li.nav-item
+                                a.nav-link(href='#')
+                                    | Home 
+                            li.nav-item
+                                a.nav-link(href='#') Product
+                            li.nav-item
+                                a.nav-link(href='#') Cart
+                        form.form-inline.my-2.my-lg-0
+                            input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+                            button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+
+        
+        block content                       
+              .container.pt-5
+
+                h1.mr-2 Hello
+
+      
+                each book in books
+                    .card.mt-5.mr-1(style='width: 17rem;display: inline-block')
+                        img.card-img-top(src= book.image, alt='Card image cap')
+                        .card-body
+                            h5.card-title 
+                                span= book.name
+                            p.card-text
+                                span= book.description
+                        ul.list-group.list-group-flush
+                            li.list-group-item 
+                                span= book.price
+                            li.list-group-item Dapibus ac facilisis in
+                            li.list-group-item Vestibulum at eros
+                        .card-body
+                            a.btn.btn-primary.mr-1(href='/cart/add/' + book.id) Add to cart
+                            a.btn.btn-primary(href='#') Another link
+
+
+
+
+        
+
+        block js
+                script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+                script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
+                script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js')                        
+
+
+

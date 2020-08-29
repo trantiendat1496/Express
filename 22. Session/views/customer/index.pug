@@ -1,0 +1,32 @@
+extends ../layouts/template.pug
+
+block content
+            
+    //- a.btn.btn-success(href='/transactions/rent/' + session.id) Rent
+    each book in books   
+        .card.mr-5.mt-5(style='width: 18rem;display: inline-block')
+            img.card-img-top(src= book.image, alt='Card image cap')
+            .card-body
+                h5.card-title 
+                    span= book.name   
+                p.card-text 
+                    span= book.description    
+            ul.list-group.list-group-flush
+                li.list-group-item 
+                    span= book.price
+                li.list-group-item Dapibus ac facilisis in
+                li.list-group-item Vestibulum at eros
+            .card-body
+                a.btn.btn-primary.mr-1(href='/cart/' + book.id) Add to cart
+
+
+
+
+
+    block js
+        script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js')                        
+
+
+

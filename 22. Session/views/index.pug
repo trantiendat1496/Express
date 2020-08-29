@@ -1,0 +1,27 @@
+extends ./layouts/template.pug
+
+block content
+
+    //- a.btn.btn-success(href='/transactions/rent/' + sessions.id) Rent
+
+
+    each book in books   
+        .card.mr-5.mt-5(style='width: 18rem;display: inline-block')
+            img.card-img-top(src= book.image, alt='Card image cap')
+            .card-body
+                h5.card-title 
+                    span= book.name   
+                p.card-text 
+                    span= book.description    
+            ul.list-group.list-group-flush
+                li.list-group-item 
+                    span= book.price
+                li.list-group-item Dapibus ac facilisis in
+                li.list-group-item Vestibulum at eros
+            .card-body
+                a.btn.btn-primary.mr-1(href='/cart/' + book.id) Add to cart
+                //- a.btn.btn-success(href='/transactions/rent/' + session.id) Rent  
+
+    
+
+    

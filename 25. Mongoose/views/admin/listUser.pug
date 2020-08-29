@@ -1,0 +1,58 @@
+extends ../layouts/admin.pug
+
+block content
+
+    .wrapper
+
+        .container.mt-5
+            row
+                .col-md-8.col-lg.d-flex.align-item-center
+                    table.mt-3(class="table table-bordered")
+                        thead(class="thead-dark")
+                            tr
+                                th(scope="col", width="5%") #
+                                th(scope="col", width="10%") Avatar
+                                th(scope="col", width="20%") Email
+                                th(scope="col", width="20%") Name
+                                th(scope="col", width="15%") Phone
+                                th(scope="col", width="10%") Action
+                        tbody
+                            if users.length > 0
+                                each user, index in users
+                                    tr      
+                                        th(scope="row") #{index + 1} 
+                                        td
+                                            img(src=user.avatar, width="32")                           
+                                        td= user.email
+                                        td= user.name
+                                        td= user.phone
+                                        td
+                                            .action-wrapper(width="100%", style="display: flex; justify-content: space-around") 
+                                                a.btn.btn-success(href='/admin/updateUser/'+ user._id) 
+                                                    span(class="material-icons") create
+                                                a.btn.btn-danger.ml-2(href='/admin/' + user._id) 
+                                                    span(class="material-icons") delete
+                    .col-md-6.col-lg-3.ml-3 
+                        h3 Create User
+                        form(method="POST", enctype="multipart/form-data")
+                            .form-group
+                                lable(for="name") Name
+                                input#name.form-control(name="name", type = "text", value=values ? values.name : "")
+
+                            .form-group
+                                lable(for="email") Email
+                                input#email.form-control(name="email", type = "text", value=values ? values.email : "")
+
+                            .form-group
+                                lable(for="phone") Phone
+                                input#phone.form-control(name="phone", type = "text", value=values ? values.phone : "")   
+
+                            .form-group
+                                lable(for="password") Password
+                                input#password.form-control(name="password", type = "password", value=values ? values.password : "")        
+
+                            .form-group
+                                lable(for="avatar") Avatar
+                                input#avatar.form-control-file(name="avatar", type = "file")   
+
+                            button.btn.btn-primary(type='submit') Submit   

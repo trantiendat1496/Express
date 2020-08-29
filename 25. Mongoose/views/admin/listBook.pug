@@ -1,0 +1,60 @@
+extends ../layouts/admin.pug
+
+block content
+
+    .wrapper
+        .container.mt-5
+            .row
+                .col-md-8.col-lg.d-flex.align-item-center
+                    table.mt-3(class="table table-bordered")
+                        thead(class="thead-dark")
+                            tr
+                                th(scope="col", width="5%") #
+                                th(scope="col", width="10%") Image
+                                th(scope="col", width="20%") Title
+                                th(scope="col", width="20%") Author
+                                th(scope="col", width="20%") Description
+                                th(scope="col", width="10%") Price
+                                th(scope="col", width="10%") Action
+                        tbody
+                            if books.length > 0
+                                each book, index in books
+                                    tr      
+                                        th(scope="row") #{index + 1} 
+                                        td
+                                            img(src=book.image, width="32")                           
+                                        td= book.title
+                                        td= book.author
+                                        td= book.description
+                                        td= book.price $
+                                        td
+                                            .action-wrapper(width="100%", style="display: flex; justify-content: space-around") 
+                                                a.btn.btn-success(href='/admin/updateBook/'+ book._id) 
+                                                    span(class="material-icons") create
+                                                a.btn.btn-danger.ml-2(href='/admin/' + book._id + '/book') 
+                                                    span(class="material-icons") delete
+
+                .col-md-6.col-lg-3.ml-3
+                    h3 Create Book
+                    form(method="POST", enctype="multipart/form-data")
+                        .form-group
+                            lable(for="title") Title
+                            input#title.form-control(name="title", type = "text", value=values ? values.title : "")
+
+                        .form-group
+                            lable(for="author") Author
+                            input#author.form-control(name="author", type = "text", value=values ? values.author : "")
+
+                        .form-group
+                            lable(for="description") Description
+                            input#description.form-control(name="description", type = "text", value=values ? values.description : "")   
+
+                        .form-group
+                            lable(for="price") price
+                            input#price.form-control(name="price", type = "text", value=values ? values.price : "")        
+
+                        .form-group
+                            lable(for="image") Image
+                            input#image.form-control-file(name="image", type = "file")   
+
+                        button.btn.btn-primary(type='submit') Submit   

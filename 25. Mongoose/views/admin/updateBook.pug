@@ -1,0 +1,35 @@
+extends ../layouts/admin.pug
+
+block content
+    
+    .wrapper
+
+        .container.mt-5
+            h1 Update Book
+
+            if errors   
+                each error in errors
+                    .alert.alert-danger= error
+
+            form(method = "POST")
+                .form-group
+                    lable(for="title") Title
+                    input#title.form-control(name= "title", type = "text",value= book.title)
+
+                .form-group
+                    lable(for="author") Author
+                    input#author.form-control(name= "author", type = "text",value= book.author)    
+
+                .form-group
+                    lable(for="description") Description
+                    input#description.form-control(name= "description", type = "text",value= book.description)    
+
+                .form-group
+                    lable(for="price") Price
+                    input#price.form-control(name= "price", type = "text",value= book.price)       
+
+                .form-group
+                    lable(for="image") Image
+                    input#avatar.form-control-file(name="image", type = "file") 
+
+                button.btn.btn-primary Update
