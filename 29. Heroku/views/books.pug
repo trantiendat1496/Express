@@ -1,0 +1,139 @@
+extends ./layouts/template.pug
+
+block content
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text align-items-center justify-content-center">
+                    <div class="col-md-9 ftco-animate mb-0 text-center">
+                        <p class="breadcrumbs mb-0"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span>Book Store <i class="fa fa-chevron-right"></i></span></p>
+                        <h1 class="mb-0 bread">Book Store</h1>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-10">
+                        <div class="row mb-4">
+                            <div class="col-md-12 d-flex justify-content-between align-items-center">
+                                <h3 class="product-select">Select Types of Products</h3>
+                                <select class="selectpicker" multiple>
+                                    <option>Audio Books</option>
+                                    <option>Business Books</option>
+                                    <option>Children Books</option>
+                                    <option>Cooking</option>
+                                    <option>Lifestyles</option>
+                                    <option>Mystery</option>
+                                    <option>Romance</option>
+                                    <option>Science Fiction</option>
+                                    <option>History</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid px-md-5">
+                <div class="row">
+                    each book in books
+                        <div class="col-md-6 col-lg-4 d-flex">
+                            <div class="book-wrap d-lg-flex">
+                                <div class="img d-flex justify-content-end" style="background-image: url(/#{book.image});">
+                                    <div class="in-text">
+                                        a.icon.d-flex.align-items-center.justify-content-center(href='/cart/' + book._id, data-toggle='tooltip', data-placement='left', title='Add to cart')
+                                            span.flaticon-shopping-cart
+                                        a.icon.d-flex.align-items-center.justify-content-center(href='#', data-toggle='tooltip', data-placement='left', title='Add to Wishlist')
+                                            span.flaticon-heart-1
+                                        a.icon.d-flex.align-items-center.justify-content-center(href='#', data-toggle='tooltip', data-placement='left', title='Quick View')
+                                            span.flaticon-search
+                                        a.icon.d-flex.align-items-center.justify-content-center(href='#', data-toggle='tooltip', data-placement='left', title='Compare')
+                                            span.flaticon-visibility
+
+                                    </div>
+                                </div>
+                                .text.p-4
+                                    p.mb-2
+                                        span.price= book.price 
+                                        span $
+                                    h2
+                                        a(href='#')=book.title
+                                    span.position= book.author
+                            </div>
+                        </div>
+
+
+                
+            
+
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        <div class="block-27">
+                            <ul>
+                                <li><a href="#">&lt;</a></li>
+                                <li class="active"><span>1</span></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">&gt;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        //- h1
+        //-     Span.mr-3 BOOK
+        //-     a.btn.btn-primary(href="books/create") New
+
+        //- .d-flex.align-item-center
+        //-     form.ml-auto(action="books/search" method="get", class="d-flex")
+        //-         input(type="text", name = "q", class="form-control")
+        //-         button(class="btn btn-primary ml-2") Search
+
+    
+        //- each book in books   
+        //-     .card.mr-5.mt-5(style='width: 18rem;display: inline-block')
+        //-         img.card-img-top(src= book.image, alt='Card image cap')
+        //-         .card-body
+        //-             h5.card-title 
+        //-                 span= book.name   
+        //-             p.card-text 
+        //-                 span= book.description    
+        //-         ul.list-group.list-group-flush
+        //-             li.list-group-item 
+        //-                 span= book.price
+        //-             li.list-group-item Dapibus ac facilisis in
+        //-             li.list-group-item Vestibulum at eros
+        //-         .card-body
+        //-             a.btn.btn-success(href='/books/view/'+ book._id) 
+        //-                 span(class="material-icons") create
+        //-             a.btn.btn-danger.ml-2(href='/books/' + book._id) 
+        //-                 span(class="material-icons") delete
+
+
+    
+        //- nav.mt-5(aria-label='Page navigation example')
+        //-     ul.pagination
+        //-         li.page-item
+        //-             a.page-link(href='#', aria-label='Previous')
+        //-                 span(aria-hidden='true') &laquo;
+        //-                 span.sr-only Previous
+        //-             each link in links 
+        //-                 li.page-item
+        //-                     a.page-link(href= link)= link.substr(link.length-1,link.length)
+        //-         li.page-item
+        //-             a.page-link(href='#', aria-label='Next')
+        //-                 span(aria-hidden='true') &raquo;
+        //-                 span.sr-only Next
+                        
+            

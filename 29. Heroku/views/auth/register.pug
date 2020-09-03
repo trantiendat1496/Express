@@ -1,0 +1,29 @@
+extends ../layouts/template.pug
+
+block content
+
+    .container
+        form(method="POST", enctype="multipart/form-data")
+            input(type= "hidden", name= "_csrf", value=csrfToken)
+            .form-group
+                lable(for="name") Name
+                input#name.form-control(name="name", type = "text", value=values ? values.name : "")
+
+            .form-group
+                lable(for="email") Email
+                input#email.form-control(name="email", type = "text", value=values ? values.email : "")
+        
+
+            .form-group
+                lable(for="phone") Phone
+                input#phone.form-control(name="phone", type = "text", value=values ? values.phone : "")   
+
+            .form-group
+                lable(for="password") Password
+                input#password.form-control(name="password", type = "password", value=values ? values.password : "")        
+
+            .form-group
+                lable(for="avatar") Avatar
+                input#avatar.form-control-file(name="avatar", type = "file")   
+
+            button.btn.btn-primary(type='submit') Submit
