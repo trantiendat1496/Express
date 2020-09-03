@@ -1,0 +1,261 @@
+doctype html
+head
+  title Admin
+  meta(name='viewport', content='width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0')
+  link(rel='icon', type='image/png', href='assets/AT-pro-logo.png')
+  // Import lib
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+  script(src='https://kit.fontawesome.com/5a505b47b8.js')
+  // End import lib
+  link(rel='stylesheet', type='text/css', href='/styles/admin.css')
+// navbar
+.navbar
+  // nav left
+  ul.navbar-nav
+    li.nav-item
+      a.nav-link
+        i.fas.fa-bars(onclick='collapseSidebar()')
+    li.nav-item
+      img.logo.logo-light(src='images/favicon.png', alt='ATPro logo')
+      img.logo.logo-dark(src='images/favicon.png', alt='ATPro logo')
+  // end nav left
+  // form
+  form.navbar-search
+    input.navbar-search-input(type='text', name='Search', placeholder='What you looking for...')
+    i.fas.fa-search
+  // end form
+  // nav right
+  ul.navbar-nav.nav-right
+    li.nav-item.mode
+      a.nav-link(href='#', onclick='switchTheme()')
+        i.fas.fa-moon.dark-icon
+        i.fas.fa-sun.light-icon
+    li.nav-item.dropdown
+      a.nav-link
+        i.fas.fa-bell.dropdown-toggle(data-toggle='notification-menu')
+        span.navbar-badge 15
+      ul#notification-menu.dropdown-menu.notification-menu
+        .dropdown-menu-header
+          span
+            | Notifications
+        .dropdown-menu-content.overlay-scrollbar.scrollbar-hover
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-gift
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-tasks
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-gift
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-tasks
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-gift
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-tasks
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-gift
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-tasks
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-gift
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-tasks
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-gift
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-tasks
+              span
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                br
+                span
+                  | 15/07/2020
+        .dropdown-menu-footer
+          span
+            | View all notifications
+    li.nav-item.avt-wrapper
+      .avt.dropdown
+        img.dropdown-toggle(src='images/cust3.jpeg', alt='User image', data-toggle='user-menu')
+        ul#user-menu.dropdown-menu
+          li.dropdown-menu-item
+            a.dropdown-menu-link
+              div
+                i.fas.fa-user-tie
+              span Profile
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-cog
+              span Settings
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.far.fa-credit-card
+              span Payments
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='#')
+              div
+                i.fas.fa-spinner
+              span Projects
+          li.dropdown-menu-item
+            a.dropdown-menu-link(href='/auth/login')
+              div
+                i.fas.fa-sign-out-alt
+              span Logout
+  // end nav right
+// end navbar
+// sidebar
+.sidebar
+  ul.sidebar-nav
+    li.sidebar-nav-item
+      a.sidebar-nav-link(href='/admin')
+        div
+          i.fas.fa-tachometer-alt
+        span
+          | Dashboard
+    li.sidebar-nav-item
+      a.sidebar-nav-link.active(href='/admin/listUser')
+        div
+          i.fab.fa-accusoft
+        span User
+    li.sidebar-nav-item
+      a.sidebar-nav-link(href='/admin/listBook')
+        div
+          i.fas.fa-tasks
+        span Book
+    li.sidebar-nav-item
+      a.sidebar-nav-link(href='/admin/listSession')
+        div
+          i.fas.fa-spinner
+        span Session
+    li.sidebar-nav-item
+      a.sidebar-nav-link(href='#')
+        div
+          i.fas.fa-check-circle
+        span Pellentesque
+    li.sidebar-nav-item
+      a.sidebar-nav-link(href='#')
+        div
+          i.fas.fa-bug
+        span Morbi
+    li.sidebar-nav-item
+      a.sidebar-nav-link(href='#')
+        div
+          i.fas.fa-chart-line
+        span Praesent
+    li.sidebar-nav-item
+      a.sidebar-nav-link(href='#')
+        div
+          i.fas.fa-book-open
+        span Pellentesque
+    li.sidebar-nav-item
+      a.sidebar-nav-link(href='#')
+        div
+          i.fas.fa-adjust
+        span Morbi
+    li.sidebar-nav-item
+      a.sidebar-nav-link(href='#')
+        div
+          i.fab.fa-algolia
+        span Praesent
+    li.sidebar-nav-item
+      a.sidebar-nav-link(href='#')
+        div
+          i.fas.fa-audio-description
+        span Pellentesque
+// end sidebar
+
+
+block content
+
+
+
+
+
+
+
+// import script
+script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js')
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js')
+script(src='js/admin.js')
+// end import script

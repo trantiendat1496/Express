@@ -1,0 +1,31 @@
+extends ../layouts/admin.pug
+
+block content
+    .wrapper
+        .container.mt-5
+            table(class="table table-bordered")
+                thead(class="thead-dark")
+                    tr
+                        th(scope="col", width="5%") #
+                        th(scope="col", width="20%") User Id
+                        th(scope="col", width="20%") Cart
+                        th(scope="col", width="10%") Total Quantity
+                        th(scope="col", width="10%") Total Price
+                        th(scope="col", width="5%") Action
+
+                tbody
+
+                    each session,index in sessions
+                        tr
+                            th(scope="row") #{index + 1}
+                            td #{session.userId}
+                            td 
+                                //- img(src= session.cart[index].image, width="64")
+                            td #{session.totalQuantity}
+                            td #{session.totalPrice}    
+                            td
+                                .action-wrapper(width="100%", style="display: flex; justify-content: space-around")
+                                    a.btn.btn-success(href="/sessions/" + session.id + "/complete", style="font-size: 10px")
+                                        span(class="material-icons") create
+                                    a.btn.btn-danger.ml-2(href="/sessions/" + session.id , style="font-size: 10px")
+                                        span(class="material-icons") delete  

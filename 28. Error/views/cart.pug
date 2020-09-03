@@ -1,0 +1,48 @@
+extends ./layouts/template.pug
+
+block content
+
+    .wrapper
+        .container.mt-5
+            table(class="table table-bordered")
+                thead(class="thead-dark")
+                    tr
+                        th(scope="col", width="5%") #
+                        th(scope="col", width="20%") Book Title
+                        th(scope="col", width="10%") Image
+                        th(scope="col", width="10%") Quantity
+                        th(scope="col", width="10%") Price
+                        th(scope="col", width="10%") Action
+
+                tbody
+                    each product, index in session.cart
+                        tr
+                            th(scope="row") #{index + 1}
+                           
+                            td= product.title  
+                                
+                            td 
+                                img(src= product.image, width="64")
+                            td 
+                                form(id=product.productId,method="GET", action="/cart/" + product.productId + "/updateQuantity")
+                                    input(class="input-qty", max="99", min="1", name="quantity", type="number", value=product.quantity)
+                            td  #{product.price * product.quantity}$   
+                            td
+                                .action-wrapper(width="100%", style="display: flex; justify-content: space-around")
+                                    a.btn.btn-danger.ml-2(href="/cart/" + product.productId + '/delete' , style="font-size: 10px")
+                                        span(class="material-icons") delete  
+
+                    tr
+                        td(colspan="6") Total: #{session.totalPrice}$
+                              
+                        
+            .row.d-flex.mb-5.mr-auto
+                a(href= 'books').btn.btn-primary.mr-3 Back to shop
+                a(href= '/cart/'+ session.userId +'/checkout').btn.btn-primary Check out                             
+
+
+    script.     
+        const quantityInputs = document.querySelectorAll('.input-qty');
+        for (const input of quantityInputs) {
+            input.addEventListener('change', function(event) { event.target.parentElement.submit() } )
+        }    
